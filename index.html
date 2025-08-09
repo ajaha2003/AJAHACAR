@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace de Med - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen overflow-x-hidden">
+    
+    <!-- Interface Principale -->
+    <div id="main-interface" class="min-h-screen flex flex-col justify-center items-center relative">
+        
+        <!-- Particules d'arrière-plan -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute w-2 h-2 bg-primary rounded-full animate-float" style="top: 20%; left: 20%; animation-delay: 0s;"></div>
+            <div class="absolute w-3 h-3 bg-secondary rounded-full animate-float" style="top: 60%; left: 80%; animation-delay: 2s;"></div>
+            <div class="absolute w-1 h-1 bg-accent rounded-full animate-float" style="top: 80%; left: 10%; animation-delay: 4s;"></div>
+            <div class="absolute w-2 h-2 bg-primary rounded-full animate-float" style="top: 30%; left: 70%; animation-delay: 1s;"></div>
+            <div class="absolute w-1 h-1 bg-secondary rounded-full animate-float" style="top: 70%; left: 30%; animation-delay: 3s;"></div>
+        </div>
+
+        <!-- Titre Principal -->
+        <div class="text-center mb-12 animate-fade-in title-margin">
+            <h1 class="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">
+                Espace de Med
+            </h1>
+            <p class="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-slate-300 to-slate-100 opacity-90 mt-4 animate-text-glow">
+                Développeur Web Full Stack
+            </p>
+            <div class="w-32 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 rounded-full animate-glow"></div>
+        </div>
+
+        <!-- Boutons de Navigation -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 animate-slide-up">
+            
+            <!-- Bouton Accueil -->
+            <button onclick="showSection('accueil')" class="group relative p-6 glass-effect rounded-2xl hover:bg-primary/20 transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 clickable">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-300"></div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-r from-indigo-500 to-blue-600 flex items-center justify-center group-hover:animate-pulse">
+                        <i class="fas fa-home text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Accueil</h3>
+                    <p class="text-slate-300 text-xs">Présentation</p>
+                </div>
+            </button>
+
+            <!-- Bouton Biographie -->
+            <button onclick="showSection('biographie')" class="group relative p-6 glass-effect rounded-2xl hover:bg-secondary/20 transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 clickable">
+                <div class="absolute inset-0 bg-gradient-to-r from-secondary to-accent opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-300"></div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-r from-purple-500 to-violet-600 flex items-center justify-center group-hover:animate-pulse">
+                        <i class="fas fa-user text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Biographie</h3>
+                    <p class="text-slate-300 text-xs">Mon parcours</p>
+                </div>
+            </button>
+
+            <!-- Bouton Projets -->
+            <button onclick="showSection('projets')" class="group relative p-6 glass-effect rounded-2xl hover:bg-accent/20 transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 clickable">
+                <div class="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-300"></div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 flex items-center justify-center group-hover:animate-pulse">
+                        <i class="fas fa-project-diagram text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Projets</h3>
+                    <p class="text-slate-300 text-xs">Mes réalisations</p>
+                </div>
+            </button>
+
+            <!-- Bouton Contact -->
+            <button onclick="showSection('contact')" class="group relative p-6 glass-effect rounded-2xl hover:bg-purple-500/20 transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 clickable">
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-300"></div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 flex items-center justify-center group-hover:animate-pulse">
+                        <i class="fas fa-envelope text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Contact</h3>
+                    <p class="text-slate-300 text-xs">Me contacter</p>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Interfaces Secondaires -->
+    
+    <!-- Section Accueil -->
+    <div id="accueil-section" class="hidden min-h-screen flex flex-col justify-center items-center p-8 relative">
+        <!-- Boutons de navigation secondaires -->
+        <div class="absolute top-6 left-6 flex space-x-3 z-50">
+            <button onclick="showMain()" class="p-3 glass-effect rounded-full hover:bg-white/20 transition-all duration-300 group animate-fade-in clickable">
+                <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button onclick="showSection('accueil')" class="p-3 glass-effect rounded-full hover:bg-primary/20 transition-all duration-300 group animate-fade-in clickable">
+                <i class="fas fa-home text-white text-lg group-hover:scale-110 transition-transform"></i>
+            </button>
+        </div>
+
+        <div class="max-w-6xl mx-auto animate-fade-in px-4 title-margin">
+            <h2 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-8 text-center">
+                Mon Accueil
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="glass-effect rounded-3xl p-6">
+                    <h3 class="text-xl text-white mb-4">Bienvenue</h3>
+                    <p class="mb-3 text-base text-slate-300 leading-relaxed">
+                        Bienvenue sur mon portfolio numérique. Je suis Mohamed Ajaha, développeur web full stack spécialisé en Python (Django/Flask) et technologies modernes.
+                    </p>
+                    <p class="mb-4 text-base text-slate-300 leading-relaxed">
+                        Explorez les différentes sections pour découvrir mon parcours académique, mes compétences techniques et mes projets concrets comme AjahaCar et Arc Solver 2025.
+                    </p>
+                    <div class="flex space-x-3 mt-4">
+                        <div class="w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center animate-pulse">
+                            <i class="fas fa-code text-white text-lg"></i>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center animate-pulse">
+                            <i class="fas fa-server text-white text-lg"></i>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center animate-pulse">
+                            <i class="fas fa-mobile-alt text-white text-lg"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-3xl p-8 text-center clickable" onclick="scrollToCompetences()">
+                    <i class="fas fa-laptop-code text-5xl mx-auto block text-center mb-4 text-primary animate-float"></i>
+                    <p class="text-slate-300 text-base hover:text-white transition-colors duration-300">
+                        Découvrez mes compétences en développement web full stack
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Biographie -->
+    <div id="biographie-section" class="hidden min-h-screen flex flex-col justify-center items-center p-8 relative">
+        <!-- Boutons de navigation secondaires -->
+        <div class="absolute top-6 left-6 flex space-x-3 z-50">
+            <button onclick="showMain()" class="p-3 glass-effect rounded-full hover:bg-white/20 transition-all duration-300 group animate-fade-in clickable">
+                <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button onclick="showSection('accueil')" class="p-3 glass-effect rounded-full hover:bg-primary/20 transition-all duration-300 group animate-fade-in clickable">
+                <i class="fas fa-home text-white text-lg group-hover:scale-110 transition-transform"></i>
+            </button>
+        </div>
+
+        <div class="max-w-6xl mx-auto animate-fade-in px-4 title-margin">
+            <h2 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent mb-8 text-center">
+                Ma Biographie
+            </h2>
+            
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/3 text-center">
+                    <div class="glass-effect p-3 rounded-full inline-block mb-4">
+                        <img src="assets/images/profile.jpg" alt="Profile" class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-white border-opacity-30">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Mohamed Ajaha</h3>
+                    <p class="text-slate-300">Développeur Full Stack</p>
+                </div>
+                <div class="md:w-2/3 glass-effect rounded-3xl p-6">
+                    <div class="space-y-4">
+                        <!-- Formation -->
+                        <button onclick="showBioDetail('formation')" class="w-full flex items-start clickable">
+                            <div class="bg-purple-500 p-2 rounded-lg mr-3">
+                                <i class="fas fa-graduation-cap text-white text-lg"></i>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-semibold text-white">Formation Académique</h4>
+                                <div id="formation-detail" class="hidden mt-2">
+                                    <ul class="text-slate-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Enseignement primaire et collège à Bab Berred, Chefchaouen</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Baccalauréat Sciences Mathématiques (option internationale) - Lycée Mohamed VI, Martil</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Graduation en Sciences Mathématiques et Informatique - Faculté des Sciences de Tétouan</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </button>
+
+                        <!-- Compétences -->
+                        <button id="competences-btn" onclick="showBioDetail('competences')" class="w-full flex items-start clickable">
+                            <div class="bg-pink-500 p-2 rounded-lg mr-3">
+                                <i class="fas fa-code text-white text-lg"></i>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-semibold text-white">Compétences Techniques</h4>
+                                <div id="competences-detail" class="hidden mt-2">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <h5 class="text-white text-sm font-medium mb-1">Frontend</h5>
+                                            <ul class="text-slate-300 text-sm space-y-1">
+                                                <li>HTML5, CSS3, Tailwind CSS</li>
+                                                <li>JavaScript (ES6+)</li>
+                                                <li>React (en apprentissage)</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white text-sm font-medium mb-1">Backend</h5>
+                                            <ul class="text-slate-300 text-sm space-y-1">
+                                                <li>Python (Flask, Django)</li>
+                                                <li>Java, C++</li>
+                                                <li>Bases de données (SQL)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+
+                        <!-- Expériences -->
+                        <button onclick="showBioDetail('experiences')" class="w-full flex items-start clickable">
+                            <div class="bg-indigo-500 p-2 rounded-lg mr-3">
+                                <i class="fas fa-briefcase text-white text-lg"></i>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-semibold text-white">Projets Réalisés</h4>
+                                <div id="experiences-detail" class="hidden mt-2">
+                                    <ul class="text-slate-300 text-sm space-y-3">
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <div>
+                                                <strong>AjahaCar</strong> - Application web/mobile d'estimation de prix des voitures d'occasion
+                                                <div class="text-xs text-slate-400 mt-1">Technologies: Python Flask, HTML/CSS/JS</div>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <div>
+                                                <strong>Arc Solver 2025</strong> - Application web de résolution de problèmes mathématiques
+                                                <div class="text-xs text-slate-400 mt-1">Technologies: Python Django, Tailwind CSS, HTML5, ES6+</div>
+                                                <div class="mt-2 text-xs text-slate-300">
+                                                    <span class="font-medium">Fonctionnalités :</span>
+                                                    <ul class="list-disc list-inside space-y-1 mt-1">
+                                                        <li>Interface utilisateur intuitive avec Tailwind CSS</li>
+                                                        <li>Calculs complexes côté serveur avec Django</li>
+                                                        <li>Visualisations interactives avec Chart.js</li>
+                                                        <li>Système d'authentification sécurisé</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Projets -->
+    <div id="projets-section" class="hidden min-h-screen flex flex-col justify-center items-center p-8 relative">
+        <!-- Boutons de navigation secondaires -->
+        <div class="absolute top-6 left-6 flex space-x-3 z-50">
+            <button onclick="showMain()" class="p-3 glass-effect rounded-full hover:bg-white/20 transition-all duration-300 group animate-fade-in clickable">
+                <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button onclick="showSection('accueil')" class="p-3 glass-effect rounded-full hover:bg-primary/20 transition-all duration-300 group animate-fade-in clickable">
+                <i class="fas fa-home text-white text-lg group-hover:scale-110 transition-transform"></i>
+            </button>
+        </div>
+
+        <div class="max-w-6xl mx-auto animate-fade-in px-4 title-margin">
+            <h2 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary mb-8 text-center">
+                Mes Projets
+            </h2>
+            
+            <div class="grid md:grid-cols-1 gap-8">
+                <!-- Projet Arc Solver 2025 -->
+                <div class="glass-effect rounded-2xl overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-gradient-to-br from-purple-900 to-blue-900 p-6 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-white/10 flex items-center justify-center">
+                                    <i class="fas fa-calculator text-3xl text-white"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white">Arc Solver 2025</h3>
+                                <p class="text-slate-300 mt-2">Solution avancée de résolution mathématique</p>
+                                <div class="mt-4 flex justify-center space-x-2">
+                                    <span class="bg-white/10 text-xs px-2 py-1 rounded-full text-white">Django</span>
+                                    <span class="bg-white/10 text-xs px-2 py-1 rounded-full text-white">Tailwind</span>
+                                    <span class="bg-white/10 text-xs px-2 py-1 rounded-full text-white">ES6+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <h4 class="text-xl font-semibold text-white mb-3">Description du Projet</h4>
+                            <p class="text-slate-300 mb-4">
+                                Application web complète permettant de résoudre des problèmes mathématiques complexes avec visualisation des résultats. Conçue pour les étudiants et professionnels en sciences.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <h5 class="text-white font-medium mb-2">Fonctionnalités Clés</h5>
+                                    <ul class="text-slate-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Résolution d'équations complexes</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Visualisation graphique interactive</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Export des résultats en PDF/CSV</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-medium mb-2">Technologies Utilisées</h5>
+                                    <ul class="text-slate-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Backend: Python Django</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Frontend: Tailwind CSS, HTML5</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Interactivité: JavaScript ES6+</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-3">
+                                <button class="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 px-4 py-2 rounded-lg text-white text-sm font-medium transition-all duration-300 clickable">
+                                    <i class="fas fa-eye mr-2"></i>Voir la Démo
+                                </button>
+                                <button class="bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-white text-sm font-medium transition-all duration-300 clickable">
+                                    <i class="fab fa-github mr-2"></i>Code Source
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projet AjahaCar -->
+                <div class="glass-effect rounded-2xl overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-gradient-to-br from-blue-900 to-teal-900 p-6 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-white/10 flex items-center justify-center">
+                                    <i class="fas fa-car text-3xl text-white"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white">AjahaCar</h3>
+                                <p class="text-slate-300 mt-2">Estimation de prix des voitures</p>
+                                <div class="mt-4 flex justify-center space-x-2">
+                                    <span class="bg-white/10 text-xs px-2 py-1 rounded-full text-white">Flask</span>
+                                    <span class="bg-white/10 text-xs px-2 py-1 rounded-full text-white">Machine Learning</span>
+                                    <span class="bg-white/10 text-xs px-2 py-1 rounded-full text-white">Mobile</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <h4 class="text-xl font-semibold text-white mb-3">Description du Projet</h4>
+                            <p class="text-slate-300 mb-4">
+                                Plateforme web et mobile permettant d'estimer le prix des voitures d'occasion en fonction de multiples critères techniques et géographiques.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <h5 class="text-white font-medium mb-2">Fonctionnalités Clés</h5>
+                                    <ul class="text-slate-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Algorithme d'estimation de prix</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Comparaison de modèles</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Version mobile disponible</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-medium mb-2">Technologies Utilisées</h5>
+                                    <ul class="text-slate-300 text-sm space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Backend: Python Flask</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Machine Learning: Scikit-learn</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="bg-white/10 rounded-full w-2 h-2 mt-2 mr-2"></span>
+                                            <span>Mobile: React Native</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-3">
+                                <button class="bg-gradient-to-r from-blue-500 to-teal-500 hover:from-blue-600 hover:to-teal-600 px-4 py-2 rounded-lg text-white text-sm font-medium transition-all duration-300 clickable">
+                                    <i class="fas fa-eye mr-2"></i>Voir la Démo
+                                </button>
+                                <button class="bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-white text-sm font-medium transition-all duration-300 clickable">
+                                    <i class="fab fa-github mr-2"></i>Code Source
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Contact -->
+    <div id="contact-section" class="hidden min-h-screen flex flex-col justify-center items-center p-8 relative">
+        <!-- Boutons de navigation secondaires -->
+        <div class="absolute top-6 left-6 flex space-x-3 z-50">
+            <button onclick="showMain()" class="p-3 glass-effect rounded-full hover:bg-white/20 transition-all duration-300 group animate-fade-in clickable">
+                <svg class="w-5 h-5 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button onclick="showSection('accueil')" class="p-3 glass-effect rounded-full hover:bg-primary/20 transition-all duration-300 group animate-fade-in clickable">
+                <i class="fas fa-home text-white text-lg group-hover:scale-110 transition-transform"></i>
+            </button>
+        </div>
+
+        <div class="max-w-6xl mx-auto animate-fade-in px-4 title-margin">
+            <h2 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 mb-8 text-center">
+                Contactez-moi
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-effect rounded-3xl p-6">
+                    <h3 class="text-xl font-semibold mb-6 text-white">Informations de contact</h3>
+                    <div class="space-y-4">
+                        <a href="mailto:mohamedajaha220@gmail.com" class="flex items-center clickable">
+                            <div class="bg-teal-500 bg-opacity-30 w-10 h-10 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-white">Email</p>
+                                <p class="text-slate-300 text-sm">mohamedajaha220@gmail.com</p>
+                            </div>
+                        </a>
+                        <a href="tel:+212635374313" class="flex items-center clickable">
+                            <div class="bg-blue-500 bg-opacity-30 w-10 h-10 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-phone-alt text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-white">Téléphone</p>
+                                <p class="text-slate-300 text-sm">+212 635-374313</p>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohamed-ajaha-a07852365?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bj2MBMxy6SqCNzHIVJRb%2F3A%3D%3D" target="_blank" class="flex items-center clickable">
+                            <div class="bg-indigo-500 bg-opacity-30 w-10 h-10 rounded-full flex items-center justify-center mr-4">
+                                <i class="fab fa-linkedin text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-white">LinkedIn</p>
+                                <p class="text-slate-300 text-sm">Mohamed Ajaha</p>
+                            </div>
+                        </a>
+                        <a href="https://www.google.com/maps/place/Tétouan,+Maroc" target="_blank" class="flex items-center clickable">
+                            <div class="bg-purple-500 bg-opacity-30 w-10 h-10 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-white">Localisation</p>
+                                <p class="text-slate-300 text-sm">Tétouan, Maroc</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-3xl p-6">
+                    <h3 class="text-xl font-semibold mb-6 text-white">Envoyez un message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Votre nom" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:bg-white/20 transition-all text-sm">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Votre email" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:bg-white/20 transition-all text-sm">
+                        </div>
+                        <div>
+                            <textarea placeholder="Votre message" rows="4" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:bg-white/20 transition-all resize-none text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 px-6 py-2 rounded-lg font-medium text-white transition-all duration-300 transform hover:scale-[1.03] shadow-lg text-sm clickable">
+                            Envoyer <i class="fas fa-paper-plane ml-1"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
